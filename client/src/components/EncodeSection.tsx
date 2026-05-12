@@ -70,7 +70,7 @@ const EncodeSection = () => {
         <p className="text-gray-500 text-sm md:text-base">Hide your secret message securely inside an image.</p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6 px-6 lg:px-8">
+      <div className="flex flex-col md:flex-row gap-6 px-2 sm:px-5 lg:px-8">
         <div className="flex flex-col gap-4 flex-1">
           <div className="relative group w-full h-64 border-2 border-gray-300 border-dashed rounded-2xl overflow-hidden hover:border-teal-500 hover:bg-teal-50/30 transition-all duration-300 bg-gray-50/50 flex flex-col items-center justify-center cursor-pointer shadow-sm" onClick={() => imageInputRef?.current?.click()}>
             {formInfo.image?.length > 0 && formInfo.image instanceof FileList ? (
@@ -128,7 +128,7 @@ const EncodeSection = () => {
         </div>
       </div>
 
-      <div className="mt-8 text-center px-6 max-w-sm mx-auto w-full">
+      <div className="mt-8 text-center px-2 sm:px-5 max-w-sm mx-auto w-full">
         <p className="text-sm text-gray-500 mb-3 flex items-center justify-center gap-1.5">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           Max capacity: {maxMessageLength} characters

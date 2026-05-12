@@ -56,7 +56,7 @@ const DecodeSection = () => {
           <p className="text-gray-500 text-sm md:text-base">Upload an encoded image to reveal its hidden secret.</p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row gap-6 px-2 sm:px-5 lg:px-8">
           <div className="flex flex-col gap-4 flex-1">
             <div className="relative group w-full h-64 border-2 border-gray-300 border-dashed rounded-2xl overflow-hidden hover:border-teal-500 hover:bg-teal-50/30 transition-all duration-300 bg-gray-50/50 flex flex-col items-center justify-center cursor-pointer shadow-sm" onClick={() => imageInputRef.current?.click()}>
               {formInfo.image?.length > 0 && formInfo.image instanceof FileList ? (

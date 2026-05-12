@@ -22,15 +22,18 @@ const App = () => {
     queryKey: ["get_release"],
     queryFn: async ()=>{
       const res = await fetch(GITHUB_RELEASES_API_URL)
+      if (!res.ok) {
+        throw new Error(`Failed to fetch releases: ${res.status} ${res.statusText}`)
+      }
       const json: GithubReleaseResponse = await res.json()
       const urls = json.assets.map((item)=> item["browser_download_url"])
       return parseDownloadUrls(urls)
     },
     refetchOnWindowFocus: false,
     staleTime: Infinity
-  })
+  })  
   return (
-    <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-8 font-sans selection:bg-teal-200">
+    <main className="min-h-screen bg-gray-50 flex items-center justify-center px-2 py-4 sm:p-8 font-sans selection:bg-teal-200">
       {showPopup && data && data.length > 0 && isFetched && <DownloadPopup parsedUrls={data} closePopup={() => setShowPopup(false)} />}
       
       <div className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] w-full max-w-4xl mx-auto rounded-3xl overflow-hidden border border-gray-100">
@@ -71,7 +74,7 @@ const App = () => {
           </div>
         </header>
 
-        <div className="p-6 sm:px-10 py-8 bg-gray-50/30">
+        <div className=" px-2 sm:px-10 py-8 bg-gray-50/30">
           <div className="flex max-w-md mx-auto mb-10 bg-gray-100/80 p-1.5 rounded-2xl shadow-inner border border-gray-200/50">
             <button
               onClick={() => setCurrentSection("encode")}
